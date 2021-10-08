@@ -1,0 +1,8 @@
+[MESSAGES CONTROL]
+disable =
+    too-few-public-methods,
+    anomalous-backslash-in-string,
+    no-else-return,
+    simplifiable-if-statement,
+    too-many-arguments,
+    import-error
