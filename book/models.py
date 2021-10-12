@@ -15,7 +15,7 @@ class Book(models.Model):
         Publisher, on_delete=models.CASCADE, related_name='books')
 
     def __str__(self):
-        return self.name
+        return (self.name)
 
 
 class Store(models.Model):
@@ -23,4 +23,4 @@ class Store(models.Model):
     books = models.ManyToManyField(Book, related_name='store')
 
     def __str__(self):
-        return self.name
+        return (self.name)

@@ -6,3 +6,4 @@ disable =
     simplifiable-if-statement,
     too-many-arguments,
     import-error
+    unused-argument

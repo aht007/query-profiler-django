@@ -12,8 +12,6 @@ def book_list():
         books.append({'id': book.id, 'name': book.name,
                      'publisher': book.publisher.name})
 
-    return books
-
 
 @query_debugger
 def book_list_select_related():
@@ -26,7 +24,16 @@ def book_list_select_related():
         books.append({'id': book.id, 'name': book.name,
                      'publisher': book.publisher.name})
 
-    return books
+@query_debugger
+def book_list_prefetch_related():
+
+    queryset = Book.objects.prefetch_related('publisher').all()
+
+    books = []
+
+    for book in queryset:
+        books.append({'id': book.id, 'name': book.name,
+                     'publisher': book.publisher.name})
 
 
 @query_debugger
@@ -40,8 +47,6 @@ def store_list_prefetch_related():
         books = [book.name for book in store.books.all()]
         stores.append({'id': store.id, 'name': store.name, 'books': books})
 
-    return stores
-
 
 @query_debugger
 def store_list():
@@ -53,5 +58,3 @@ def store_list():
     for store in queryset:
         books = [book.name for book in store.books.all()]
         stores.append({'id': store.id, 'name': store.name, 'books': books})
-
-    return stores
